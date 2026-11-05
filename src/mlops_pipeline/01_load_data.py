@@ -22,8 +22,10 @@ def calculate_file_hash(file_path):
     sha256 = hashlib.sha256()
 
     with open(file_path, "rb") as f:
-        for chunk in iter(lambda: f.read(1024 * 1024), b""):
-            sha256.update(chunk)
+        content = f.read()
+
+    normalized_content = content.replace(b"\r\n", b"\n")
+    sha256.update(normalized_content)
 
     return sha256.hexdigest()
 
