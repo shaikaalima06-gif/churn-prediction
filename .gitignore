@@ -1,31 +1,42 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-
-# Virtual environment
+# Environments
 venv/
-.venv/
 env/
-
-# Jupyter
+__pycache__/
 .ipynb_checkpoints/
 
-# Large/generated ML files
-models/*
-outputs/*
-logs/*
-artifacts/*
+# Ignore raw CSV files except required project datasets
+data/raw/*.csv
+!data/raw/churn.csv
+!data/raw/new_churn.csv
 
-# Keep folder structure
-!models/.gitkeep
-!outputs/.gitkeep
-!logs/.gitkeep
-!artifacts/.gitkeep
+# Ignore model artifacts
+models/*.pkl
 
-# OS files
+logs/
+outputs/
+
+.vscode/
+
+# Ignore MLflow tracking data and databases
+mlruns/
+mlflow.db
+
+# Ignore locally generated artifact plots and reports
+artifacts/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python temporary files
+*.py[cod]
+__pycache__/
+
+# Windows temporary files
 .DS_Store
 Thumbs.db
 
-# Secrets
-.env
+# Virtual environments
+venv/
+.venv/
